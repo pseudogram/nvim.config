@@ -16,7 +16,7 @@ autocmd("BufWinEnter", {
             vim.cmd.Git('push')
         end, opts)
 
-	--[[ I could get the follwong keymap working
+	--[[ I couldn't get the following keymap working
         -- rebase always
         vim.keymap.set("n", "<leader>P", function()
            vim.cmd.Git({"pull", "--rebase"})
