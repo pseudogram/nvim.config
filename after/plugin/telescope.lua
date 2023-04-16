@@ -5,7 +5,7 @@ vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 
 -- Project search All, sometimes you need to look at hidden files.
 vim.keymap.set('n', '<leader>pa', function()
-	builtin.find_files({hidden=true})
+	builtin.find_files({hidden=true, })
 end)
 -- Project search Everything, sometimes you wanna looka at node modules
 vim.keymap.set('n', '<leader>pe', function()
