@@ -20,6 +20,11 @@ return require('packer').startup(function(use)
 		'rose-pine/neovim',
 		as = 'rose-pine',
 		config = function()
+			require('rose-pine').setup({
+				variant = 'moon',
+				disable_background = true,
+
+			})
 			vim.cmd('colorscheme rose-pine')
 		end
 	})
@@ -38,9 +43,25 @@ return require('packer').startup(function(use)
 	-- Git on steroids
 	use({ 'tpope/vim-fugitive' })
 
+	-- LSP
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v2.x',
+		requires = {
+			-- LSP Support
+			{'neovim/nvim-lspconfig'},             -- Required
+			{                                      -- Optional
+			'williamboman/mason.nvim',
+			run = function()
+				pcall(vim.cmd, 'MasonUpdate')
+			end,
+		},
+		{'williamboman/mason-lspconfig.nvim'}, -- Optional
 
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
-
+		-- Autocompletion
+		{'hrsh7th/nvim-cmp'},     -- Required
+		{'hrsh7th/cmp-nvim-lsp'}, -- Required
+		{'L3MON4D3/LuaSnip'},     -- Required
+	}
+}
 end)
