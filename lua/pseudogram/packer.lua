@@ -32,8 +32,8 @@ return require('packer').startup(function(use)
 	-- treesiter builds an AST and improves highlighting
 	use({ 'nvim-treesitter/nvim-treesitter', {run= ':TSUpdate'}})
 	-- treesitter playground allows you to look at the AST
-	use({ 'nvim-treesitter/playground'}) 
-	
+	use({ 'nvim-treesitter/playground'})
+
 	-- move between files fast
 	use({ 'ThePrimeagen/harpoon'})
 
@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
 
 	-- Git on steroids
 	use({ 'tpope/vim-fugitive' })
+	use({ 'tpope/vim-commentary' })
 
 	-- LSP
 	use {
