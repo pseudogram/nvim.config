@@ -81,4 +81,9 @@ return require('packer').startup(function(use)
         -- requires treesitter
     })
 
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+
 end)
