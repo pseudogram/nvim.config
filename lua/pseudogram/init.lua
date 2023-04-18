@@ -1,5 +1,5 @@
+require("pseudogram.packer")
 require("pseudogram.remap")
--- require("pseudogram.packer")
 require("pseudogram.set")
 
 

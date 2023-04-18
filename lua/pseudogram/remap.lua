@@ -62,6 +62,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- go to packer config
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/pseudogram/packer.lua<CR>");
+
 -- run packer file extension
 vim.keymap.set("n", "<leader>vpx", "<cmd>so ~/.config/nvim/lua/pseudogram/packer.lua<CR>");
 
