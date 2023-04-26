@@ -37,3 +37,8 @@ vim.g.netrw_winsize = 75
 
 -- hide netrw banner that gives usage info
 -- vim.g.netrw_banner = 0
+
+-- ignore case letters when searching
+vim.opt.ignorecase = true
+-- if searching with a cased letter, then care
+vim.opt.smartcase = true
