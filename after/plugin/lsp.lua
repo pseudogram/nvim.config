@@ -48,9 +48,7 @@ lsp.set_preferences({
     }
 })
 
-lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
-
+function on_attach(opts)
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
@@ -63,9 +61,29 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+end
+
+lsp.on_attach(function(client, bufnr)
+  local opts = {buffer = bufnr, remap = false}
+  on_attach(opts)
 end)
 
+lsp.skip_server_setup({'tsserver'})
+
 lsp.setup()
+
+-- Setup with typescript.nvim -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/guides/quick-recipes.md#setup-with-typescriptnvim
+require("typescript").setup({
+            disable_commands = false, -- prevent the plugin from creating Vim commands
+            debug = false, -- enable debug logging for commands
+            go_to_source_definition = {
+                fallback = true, -- fall back to standard LSP definition on failure
+            },
+            server = { -- pass options to lspconfig's setup method
+                on_attach = on_attach,
+            },
+        })
+
 
 vim.diagnostic.config({
     virtual_text = true
