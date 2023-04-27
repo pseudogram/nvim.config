@@ -86,4 +86,13 @@ return require('packer').startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
 
+    -- typescript plugin for nvim.lsp (config in lsp zero)
+    use({
+        "jose-elias-alvarez/typescript.nvim",
+    })
+
+    -- add typescript and other actions to lsp code actions
+    use({
+        "jose-elias-alvarez/null-ls.nvim",
+    })
 end)
