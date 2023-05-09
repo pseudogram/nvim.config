@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
 
@@ -23,7 +23,6 @@ return require('packer').startup(function(use)
             require('rose-pine').setup({
                 variant = 'moon',
                 disable_background = true,
-
             })
             vim.cmd('colorscheme rose-pine')
         end
@@ -32,15 +31,15 @@ return require('packer').startup(function(use)
     -- treesiter builds an AST and improves highlighting
     use({
         'nvim-treesitter/nvim-treesitter',
-        {run= ':TSUpdate'},
+        { run = ':TSUpdate' },
     })
 
 
     -- treesitter playground allows you to look at the AST
-    use({ 'nvim-treesitter/playground'})
+    use({ 'nvim-treesitter/playground' })
 
     -- move between files fast
-    use({ 'ThePrimeagen/harpoon'})
+    use({ 'ThePrimeagen/harpoon' })
 
     -- see your entire branching undo tree. literal magic
     use({ 'mbbill/undotree' })
@@ -55,19 +54,20 @@ return require('packer').startup(function(use)
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {                                      -- Optional
+            { 'neovim/nvim-lspconfig' }, -- Required
+            {
+                                       -- Optional
                 'williamboman/mason.nvim',
                 run = function()
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
+            { 'hrsh7th/nvim-cmp' },   -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'L3MON4D3/LuaSnip' },   -- Required
         }
     })
     -- add closing brakets automatically
@@ -94,11 +94,18 @@ return require('packer').startup(function(use)
     -- add typescript and other actions to lsp code actions
     use({
         "jose-elias-alvarez/null-ls.nvim",
+        requires = { "nvim-lua/plenary.nvim" }
     })
 
-    use('MunifTanjim/prettier.nvim')
+    use({
+        "jay-babu/mason-null-ls.nvim",
+        config = function()
+            require("mason-null-ls").setup({
+                ensure_installed = nil,
+                automatic_installation = true,
+            })
+        end
+    })
 
     use('mattkubej/jest.nvim')
-
-
 end)

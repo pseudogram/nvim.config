@@ -6,13 +6,22 @@ local async = event == "BufWritePost"
 
 null_ls.setup({
     sources = {
-        -- ..., -- add to your other sources
         require("typescript.extensions.null-ls.code-actions"),
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.completion.spell,
+        null_ls.builtins.diagnostics.cspell.with({
+            diagnostic_config = {
+                -- see :help vim.diagnostic.config()
+                underline = true,
+                virtual_text = false,
+                signs = true,
+                update_in_insert = false,
+                severity_sort = true,
+            }
+        }),
+        -- null_ls.builtins.code_actions.cspell,
+        -- null_ls.builtins.diagnostics.eslint_d,
+        -- null_ls.builtins.code_actions.eslint_d,
+        null_ls.builtins.formatting.prettier
     },
-    -- this is used for prettier.nvim
-    -- on attach function from ... https://github.com/MunifTanjim/prettier.nvim#setting-up-null-ls
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
             vim.keymap.set("n", "<Leader>f", function()
@@ -34,7 +43,7 @@ null_ls.setup({
         -- format in visual mode
         if client.supports_method("textDocument/rangeFormatting") then
             vim.keymap.set("x", "<Leader>f", function()
-         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+                vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
             end, { buffer = bufnr, desc = "[lsp] format" })
         end
     end,
