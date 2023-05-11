@@ -2,7 +2,6 @@ require("pseudogram.packer")
 require("pseudogram.remap")
 require("pseudogram.set")
 
-
 local augroup = vim.api.nvim_create_augroup
 local pseudogramGroup = augroup('pseudogram', {})
 
@@ -35,4 +34,6 @@ autocmd({"BufWritePre"}, {
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
+
+
 
