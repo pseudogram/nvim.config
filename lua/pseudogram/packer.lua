@@ -107,5 +107,5 @@ return require('packer').startup(function(use)
         end
     })
 
-    use('mattkubej/jest.nvim')
+    use('David-Kunz/jester')
 end)
