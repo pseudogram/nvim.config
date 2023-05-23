@@ -29,7 +29,29 @@ if utils.checkPath([[opendata-portal]]) then
     }
 end
 
-require("jester").setup(options)
+local jester = require("jester")
+
+jester.setup(options)
+
+-- test nearest test under cursor
+vim.keymap.set("n", "<leader>tn", function() jester.run()  end)
+
+-- test current file
+vim.keymap.set("n", "<leader>tf", function() jester.run_file()  end)
+
+-- test last tests
+vim.keymap.set("n", "<leader>tl", function() jester.run_last()  end)
+
+-- debug test nearest test under cursor
+vim.keymap.set("n", "<leader>dtn", function() jester.debug()  end)
+
+-- debug test current file
+vim.keymap.set("n", "<leader>dtf", function() jester.debug_file()  end)
+
+-- debug test last tests
+vim.keymap.set("n", "<leader>dtl", function() jester.debug_last()  end)
+
+
 
 -- local augroup = vim.api.nvim_create_augroup
 -- local localProjectGroup = augroup('LocalProjects', {})
