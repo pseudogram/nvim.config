@@ -43,13 +43,13 @@ vim.keymap.set("n", "<leader>tf", function() jester.run_file()  end)
 vim.keymap.set("n", "<leader>tl", function() jester.run_last()  end)
 
 -- debug test nearest test under cursor
-vim.keymap.set("n", "<leader>dtn", function() jester.debug()  end)
+vim.keymap.set("n", "<leader>tdn", function() jester.debug()  end)
 
 -- debug test current file
-vim.keymap.set("n", "<leader>dtf", function() jester.debug_file()  end)
+vim.keymap.set("n", "<leader>tdf", function() jester.debug_file()  end)
 
 -- debug test last tests
-vim.keymap.set("n", "<leader>dtl", function() jester.debug_last()  end)
+vim.keymap.set("n", "<leader>tdl", function() jester.debug_last()  end)
 
 
 
