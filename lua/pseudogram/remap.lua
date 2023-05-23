@@ -74,3 +74,8 @@ end)
 
 -- open vim diagnostic window for error under cursor
 vim.keymap.set('n', "<leader>e", function() vim.diagnostic.open_float() end)
+
+
+-- go back to normal mode from terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "jj", "<C-\\><C-n>")
