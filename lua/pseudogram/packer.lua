@@ -107,6 +107,37 @@ return require('packer').startup(function(use)
         end
     })
 
-    use({"pseudogram/jester"})
+    use({ "pseudogram/jester" })
+    use('williamboman/mason.nvim')
+    use 'mfussenegger/nvim-dap'
+    use 'jay-babu/mason-nvim-dap.nvim'
 
+    -- Nice errors
+    use({
+        "folke/trouble.nvim",
+        config = function()
+            require("trouble").setup {
+                icons = false,
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    })
+
+    use({"kkharji/lspsaga.nvim"})
+    --use({
+    --    "nvimdev/lspsaga.nvim",
+    --    opt = true,
+    --    branch = "main",
+    --    event = "LspAttach",
+    --    config = function()
+    --        require("lspsaga").setup({})
+    --    end,
+    --    requires = {
+    --        --{"nvim-tree/nvim-web-devicons"},
+    --        --Please make sure you install markdown and markdown_inline parser
+    --        {"nvim-treesitter/nvim-treesitter"}
+    --    }
+    --})
 end)
