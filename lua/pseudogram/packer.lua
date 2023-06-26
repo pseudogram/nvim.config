@@ -19,20 +19,20 @@ return require('packer').startup(function(use)
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
-        config = function()
-            require('rose-pine').setup({
-                variant = 'moon',
-                disable_background = true,
-            })
-            vim.cmd('colorscheme rose-pine')
-        end
+        -- config = function()
+        --     require('rose-pine').setup({
+        --         variant = 'moon',
+        --         disable_background = true,
+        --     })
+        --     vim.cmd('colorscheme rose-pine')
+        -- end
     })
 
     -- treesiter builds an AST and improves highlighting
-    use({
+    use {
         'nvim-treesitter/nvim-treesitter',
-        { run = ':TSUpdate' },
-    })
+        run = ':TSUpdate'
+    }
 
 
     -- treesitter playground allows you to look at the AST
@@ -125,7 +125,7 @@ return require('packer').startup(function(use)
         end
     })
 
-    use({"kkharji/lspsaga.nvim"})
+    use({ "kkharji/lspsaga.nvim" })
     --use({
     --    "nvimdev/lspsaga.nvim",
     --    opt = true,
@@ -141,5 +141,13 @@ return require('packer').startup(function(use)
     --    }
     --})
 
-    use({"airblade/vim-gitgutter"})
+    use({ "airblade/vim-gitgutter" })
+
+    use({
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        tag = "v1.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+        run = "make install_jsregexp"
+    })
 end)
