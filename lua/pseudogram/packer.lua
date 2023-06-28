@@ -141,6 +141,7 @@ return require('packer').startup(function(use)
     --    }
     --})
 
+    -- git gutter. enough said
     use({ "airblade/vim-gitgutter" })
 
     use({
@@ -150,8 +151,6 @@ return require('packer').startup(function(use)
         -- install jsregexp (optional!:).
         run = "make install_jsregexp"
     })
-    -- git gutter. enough said
-    use({"airblade/vim-gitgutter"})
 
     -- edit directories and files in netrw like a normal buffer
     use {
