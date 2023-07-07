@@ -36,7 +36,7 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_winsize = 75
 
 -- hide netrw banner that gives usage info
--- vim.g.netrw_banner = 0
+vim.g.netrw_banner = 0
 
 -- ignore case letters when searching
 vim.opt.ignorecase = true
