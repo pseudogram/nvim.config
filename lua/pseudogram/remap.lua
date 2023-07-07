@@ -42,8 +42,9 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- Just don't use capital Q
 vim.keymap.set("n", "Q", "<nop>")
 
--- use sessionizer in vscode. god thats nice
+-- use sessionizer in vim, god thats nice
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-s>", "<cmd>silent !tmux neww tmux-session-finder<CR>")
 
 -- quick formatting using lsp
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
