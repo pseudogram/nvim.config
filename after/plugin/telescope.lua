@@ -1,4 +1,5 @@
 local builtin = require('telescope.builtin')
+local utils = require('pseudogram.utils')
 
 local telescope = require('telescope')
 telescope.setup({
@@ -28,6 +29,17 @@ vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 -- Project Search - all your normal day to day files
 vim.keymap.set('n', '<leader>ps', function()
     builtin.grep_string({ search = vim.fn.input("grep 🔍 >") })
+end)
+
+-- Project Search string under cursor
+vim.keymap.set('n', '<leader>ys', function()
+    builtin.grep_string()
+end)
+
+-- Project Search selection under cursor
+vim.keymap.set('v', '<leader>ys', function()
+    local visual_selection = utils.get_visual_selection()
+    builtin.grep_string({search=visual_selection})
 end)
 
 -- Project search Live grep
