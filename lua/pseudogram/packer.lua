@@ -86,27 +86,6 @@ return require('packer').startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
 
-    -- typescript plugin for nvim.lsp (config in lsp zero)
-    use({
-        "jose-elias-alvarez/typescript.nvim",
-    })
-
-    -- add typescript and other actions to lsp code actions
-    use({
-        "jose-elias-alvarez/null-ls.nvim",
-        requires = { "nvim-lua/plenary.nvim" }
-    })
-
-    use({
-        "jay-babu/mason-null-ls.nvim",
-        config = function()
-            require("mason-null-ls").setup({
-                ensure_installed = nil,
-                automatic_installation = true,
-            })
-        end
-    })
-
     use({ "pseudogram/jester" })
     use('williamboman/mason.nvim')
     use 'mfussenegger/nvim-dap'
