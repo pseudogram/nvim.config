@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 vim.keymap.set("i", "jj", "<Esc>")
 
 -- project view
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Explore) -- used to be Ex, but rails.vim broke it
 
 -- In VISUAL mode move selected lines up (J) or down (K) one line at a time
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
