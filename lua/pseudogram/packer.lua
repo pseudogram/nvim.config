@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
 
     -- Find things as you need them
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
@@ -35,6 +35,8 @@ return require('packer').startup(function(use)
     }
 
 
+
+
     -- treesitter playground allows you to look at the AST
     use({ 'nvim-treesitter/playground' })
 
@@ -47,6 +49,8 @@ return require('packer').startup(function(use)
     -- Git on steroids
     use({ 'tpope/vim-fugitive' })
     use({ 'tpope/vim-commentary' })
+
+    use({ 'tpope/vim-rails' })
 
     -- LSP
     use({
@@ -161,5 +165,3 @@ return require('packer').startup(function(use)
         end
     }
 end)
-
-
