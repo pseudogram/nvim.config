@@ -62,12 +62,12 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- go to packer config
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/pseudogram/packer.lua<CR>");
+-- vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/pseudogram/packer.lua<CR>");
 
 -- run packer file extension
-vim.keymap.set("n", "<leader>vpx", "<cmd>so ~/.config/nvim/lua/pseudogram/packer.lua<CR>");
+-- vim.keymap.set("n", "<leader>vpx", "<cmd>so ~/.config/nvim/lua/pseudogram/packer.lua<CR>");
 
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
+-- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
