@@ -3,9 +3,10 @@ local lazy = require("lazy")
 plugins = {
     -- Search
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.4',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.4',
         version = '0.1.4',
-          dependencies = { 'nvim-lua/plenary.nvim' }
+        dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
     -- Themes
@@ -28,19 +29,19 @@ plugins = {
     },
 
     -- treesitter playground allows you to look at the AST
-    {'nvim-treesitter/playground'},
+    { 'nvim-treesitter/playground' },
 
     -- move between files fast
-    {'ThePrimeagen/harpoon'},
+    { 'ThePrimeagen/harpoon' },
 
     -- see your entire branching undo tree. literal magic
-    {'mbbill/undotree'},
+    { 'mbbill/undotree' },
 
     -- Git on steroids
-    {'tpope/vim-fugitive'},
-    {'tpope/vim-commentary'},
+    { 'tpope/vim-fugitive' },
+    { 'tpope/vim-commentary' },
 
-    {'tpope/vim-rails'},
+    { 'tpope/vim-rails' },
 
     -- LSP
     {
@@ -48,13 +49,13 @@ plugins = {
         branch = 'v2.x',
         dependencies = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            { 'williamboman/mason.nvim' }, -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
+            { 'hrsh7th/nvim-cmp' },                  -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+            { 'L3MON4D3/LuaSnip' },                  -- Required
         }
     },
     -- add closing brakets automatically
@@ -74,8 +75,8 @@ plugins = {
         build = function() vim.fn["mkdp#util#install"]() end,
     },
 
-    {'pseudogram/jester'},
-    {'williamboman/mason.nvim'},
+    { 'pseudogram/jester' },
+    { 'williamboman/mason.nvim' },
     { 'mfussenegger/nvim-dap' },
     { 'jay-babu/mason-nvim-dap.nvim' },
 
@@ -95,7 +96,7 @@ plugins = {
     { 'kkharji/lspsaga.nvim' },
 
     -- git gutter. enough said
-    {'airblade/vim-gitgutter'},
+    { 'airblade/vim-gitgutter' },
 
     {
         "L3MON4D3/LuaSnip",
@@ -105,39 +106,39 @@ plugins = {
         build = "make install_jsregexp"
     },
 
-    -- edit directories and files in netrw like a normal buffer
-    {
-        'stevearc/oil.nvim',
-        config = function()
-            require('oil').setup({
-                columns = {
-                    "icon",
-                    -- "permissions"
-                },
-                -- use_default_keymaps = false,
-                default_file_explorer = false,
-                -- keymaps = {
-                --     ["g?"] = "actions.show_help",
-                --     ["<CR>"] = "actions.select",
-                --     ["<C-s>"] = "actions.select_split",
-                --     ["<C-v>"] = "actions.select_vsplit",
-                --     ["<C-t>"] = "actions.select_tab",
-                --     ["<Esc>"] = "actions.close",
-                --     ["<Tab>"] = "actions.preview",
-                --     ["<C-r>"] = "actions.refresh",
-                --     ["-"] = "actions.parent",
-                --     ["g."] = "actions.toggle_hidden",
-                -- },
-                -- view_options = {
-                --     show_hidden = true
-                -- }
-            })
-        end
-    },
+    -- -- edit directories and files in netrw like a normal buffer
+    -- {
+    --     'stevearc/oil.nvim',
+    --     config = function()
+    --         require('oil').setup({
+    --             columns = {
+    --                 "icon",
+    --                 -- "permissions"
+    --             },
+    --             -- use_default_keymaps = false,
+    --             default_file_explorer = false,
+    --             -- keymaps = {
+    --             --     ["g?"] = "actions.show_help",
+    --             --     ["<CR>"] = "actions.select",
+    --             --     ["<C-s>"] = "actions.select_split",
+    --             --     ["<C-v>"] = "actions.select_vsplit",
+    --             --     ["<C-t>"] = "actions.select_tab",
+    --             --     ["<Esc>"] = "actions.close",
+    --             --     ["<Tab>"] = "actions.preview",
+    --             --     ["<C-r>"] = "actions.refresh",
+    --             --     ["-"] = "actions.parent",
+    --             --     ["g."] = "actions.toggle_hidden",
+    --             -- },
+    --             -- view_options = {
+    --             --     show_hidden = true
+    --             -- }
+    --         })
+    --     end
+    -- },
 
+    { 'mhartington/formatter.nvim' },
 }
 
-opts = {}
+local opts = {}
 
 lazy.setup(plugins, opts)
-
