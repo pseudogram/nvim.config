@@ -1,7 +1,4 @@
 -- require("pseudogram.packer")
--- Package manager
--- require("pseudogram.lazy")
-
 require("pseudogram.remap")
 require("pseudogram.set")
 
