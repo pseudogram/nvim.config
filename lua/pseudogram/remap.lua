@@ -47,7 +47,9 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<C-s>", "<cmd>silent !tmux neww tmux-session-finder<CR>")
 
 -- quick formatting using lsp
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+-- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>f", ":Format<CR>")
+vim.keymap.set("n", "<leader>F", ":FormatWrite<CR>")
 
 -- move through the quickfix menu. TBD when working on c
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -76,6 +78,8 @@ end)
 -- open vim diagnostic window for error under cursor
 vim.keymap.set('n', "<leader>e", function() vim.diagnostic.open_float() end)
 
+-- toggle virtual text
+-- vim.keymap.set('n', "<leader>te", function() vim.diagnostic.set({virtual_text=!vim.diagnostic.config().virtual_text}) end)
 
 -- go back to normal mode from terminal mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
