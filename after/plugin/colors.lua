@@ -4,6 +4,7 @@
 
 function ColorMyPencils(color)
 	color = color or "rose-pine"
+	-- color = color or "onedark"
 
 	require('rose-pine').setup({
 	--- @usage 'auto'|'main'|'moon'|'dawn'
