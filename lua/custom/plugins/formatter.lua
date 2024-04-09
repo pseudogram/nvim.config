@@ -44,6 +44,13 @@ return {
                 --     end
                 -- },
 
+                -- eruby = { require("formatter.filetypes.ruby").rubocop,
+                --     require("formatter.defaults.prettier") },
+
+                ruby = require("formatter.filetypes.ruby").rubocop,
+                html = {
+                    require("formatter.defaults.prettier"),
+                },
                 javascript = {
                     require("formatter.defaults.prettier"),
                 },
@@ -54,6 +61,9 @@ return {
                     require("formatter.defaults.prettier"),
                 },
                 typescriptreact = {
+                    require("formatter.defaults.prettier"),
+                },
+                json = {
                     require("formatter.defaults.prettier"),
                 },
 
@@ -68,7 +78,9 @@ return {
                     function()
                         local formatters = require("formatter.util").get_available_formatters_for_ft(vim.bo.filetype)
                         -- do nothing if other formatters exist
+                        -- print(formatters)
                         if #formatters > 0 then
+                            -- print('multi formaters')
                             return
                         end
 
