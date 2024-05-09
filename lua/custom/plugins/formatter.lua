@@ -48,6 +48,7 @@ return {
                 --     require("formatter.defaults.prettier") },
 
                 ruby = require("formatter.filetypes.ruby").rubocop,
+                eruby = require("formatter.filetypes.ruby").rubocop,
                 html = {
                     require("formatter.defaults.prettier"),
                 },
@@ -66,7 +67,15 @@ return {
                 json = {
                     require("formatter.defaults.prettier"),
                 },
-
+                css = {
+                    require("formatter.defaults.prettier"),
+                },
+                scss = {
+                    require("formatter.defaults.prettier"),
+                },
+                yaml = {
+                    require("formatter.defaults.prettier"),
+                },
                 -- Use the special "*" filetype for defining formatter configurations on
                 -- any filetype
                 ["*"] = {
