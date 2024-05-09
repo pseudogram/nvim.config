@@ -85,9 +85,8 @@ vim.keymap.set('n', "<leader>e", function() vim.diagnostic.open_float() end)
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "jj", "<C-\\><C-n>")
 
-
 -- Replace Quotes (uses m mark as a temporary mark)
 -- replace double quotes with single quotes
-vim.keymap.set("n", "<leader>''", "mmdi\"h\"_x\"_xi'<Esc>pa'<Esc>`m")
+vim.keymap.set("n", "<leader>''", "mmdi\"a<BS><BS>''<Esc>hp`m")
 -- replace single quotes with double quotes
-vim.keymap.set("n", '<leader>""', "mmdi'h\"_x\"_xi\"<Esc>pa\"<Esc>`m")
+vim.keymap.set("n", '<leader>""', 'mmdi\'a<BS><BS>""<Esc>hp`m')
