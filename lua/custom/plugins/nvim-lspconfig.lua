@@ -38,7 +38,6 @@ return {
 
 
         local function on_attach(opts)
-            print "inside attach"
             vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
             vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
             vim.keymap.set("n", "<leader>vws", function()
