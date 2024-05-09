@@ -27,7 +27,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "80,100,120,121,122,123,124,125,126,127,128,129,130"
 
 -- open new files from netrw in same window (default)
 vim.g.netrw_browse_split = 0
