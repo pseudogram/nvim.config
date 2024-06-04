@@ -30,6 +30,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
+-- yank into your clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
@@ -90,3 +91,10 @@ vim.keymap.set("t", "jj", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>''", "mmdi\"a<BS><BS>''<Esc>hp`m")
 -- replace single quotes with double quotes
 vim.keymap.set("n", '<leader>""', 'mmdi\'a<BS><BS>""<Esc>hp`m')
+
+
+-- Replace Quotes (uses m mark as a temporary mark)
+-- replace double quotes with single quotes
+vim.keymap.set("n", "<M-n>", ":cn<CR>")
+-- replace single quotes with double quotes
+vim.keymap.set("n", '<M-N>', ":cp<CR>")
