@@ -29,7 +29,7 @@ return {
         })
 
         -- Project fuzzy search Files
-        vim.keymap.set('n', '<leader>pf',builtin.find_files, {})
+        vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
         -- Project fuzzy search Files
         -- vim.keymap.set('n', '<leader>pf',function()
         --     builtin.find_files()
@@ -52,6 +52,11 @@ return {
             builtin.grep_string({ search = vim.fn.input("grep 🔍 >") })
         end)
 
+        -- Project Search - all your normal day to day files USING REGEX
+        vim.keymap.set('n', '<leader>pr', function()
+            builtin.grep_string({ search = vim.fn.input("grep regex 🔍 >"), use_regex = true })
+        end)
+
         -- Project Search string under cursor
         vim.keymap.set('n', '<leader>ys', function()
             builtin.grep_string()
@@ -60,7 +65,7 @@ return {
         -- Project Search selection under cursor
         vim.keymap.set('v', '<leader>ys', function()
             local visual_selection = utils.get_visual_selection()
-            builtin.grep_string({search=visual_selection})
+            builtin.grep_string({ search = visual_selection })
         end)
 
         -- Project search Live grep
@@ -68,6 +73,5 @@ return {
 
         -- Telescope to search and View all Help pages
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-
     end,
 }
