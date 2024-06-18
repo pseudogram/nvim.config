@@ -17,7 +17,6 @@ return {
                     'pylsp',
                     'clangd',
                     'lua_ls',
-                    'ruby_ls',
                     'solargraph'
                 },
                 handlers = {
