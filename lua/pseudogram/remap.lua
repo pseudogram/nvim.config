@@ -60,8 +60,8 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- replace a word in your active buffer
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
--- search and replace all the text highlighted in visual mode
-vim.keymap.set("v", "<leader>s", [[y:%s/<C-r>0/<C-r>0/gI<Left><Left><Left>]])
+-- search and replace all the text highlighted in visual mode (using ~ as delimeter)
+vim.keymap.set("v", "<leader>s", [[y:%s~<C-r>0~<C-r>0~gI<Left><Left><Left>]])
 
 -- Quick command to make the current file executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
