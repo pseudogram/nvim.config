@@ -36,7 +36,20 @@ return {
                 ['<Tab>'] = cmp.mapping.confirm({ select = true }),
                 ['<S-Tab>'] = nil,
             }),
+            snippet = {
+                expand = function(args)
+                    require('luasnip').lsp_expand(args.body)
+                end
+            },
+            sources = cmp.config.sources({
+                -- { name = 'nvim_lsp' },
+                -- { name = 'vsnip' }, -- For vsnip users.
+                { name = 'luasnip' }, -- For luasnip users.
+                -- { name = 'ultisnips' }, -- For ultisnips users.
+                -- { name = 'snippy' }, -- For snippy users.
+            }, {
+                { name = 'buffer' },
+            })
         })
-
     end
 }

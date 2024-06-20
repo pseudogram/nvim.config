@@ -74,9 +74,10 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+-- source the current file - use when updating neovim config
+-- vim.keymap.set("n", "<leader><leader>", function()
+--     vim.cmd("so")
+-- end)
 
 -- open vim diagnostic window for error under cursor
 vim.keymap.set('n', "<leader>e", function() vim.diagnostic.open_float() end)
