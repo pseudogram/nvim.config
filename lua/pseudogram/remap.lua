@@ -114,3 +114,5 @@ end
 -- better merge conflicts
 vim.keymap.set("n", "<leader>m", merge_conflict, opts)
 
+-- create a temporary session (can be opened with `vim -S /tmp/session.vim`)
+vim.keymap.set("n", "<leader><leader>ZZ", "<cmd>mksession! /tmp/session.vim<CR><cmd>xa<CR>")
