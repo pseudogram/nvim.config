@@ -19,3 +19,9 @@ local ruby_and_eruby_snips = {
 
 create_snippets('ruby', ruby_and_eruby_snips )
 create_snippets('eruby', ruby_and_eruby_snips )
+
+local typescript_snips = {
+    ls.parser.parse_snippet('const', "const $1 = $2"),
+}
+
+create_snippets('typescript', typescript_snips)
