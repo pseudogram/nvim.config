@@ -105,10 +105,10 @@ vim.keymap.set("n", '<M-N>', ":cp<CR>")
 
 -- Define a function to execute the commands
 local function merge_conflict()
-  vim.cmd('Gdiffsplit :3')
-  vim.cmd('Gvdiffsplit :1')
-  vim.cmd('Gvdiffsplit :2')
-  vim.cmd('wincmd j')
+    vim.cmd('Gdiffsplit :3')
+    vim.cmd('Gvdiffsplit :1')
+    vim.cmd('Gvdiffsplit :2')
+    vim.cmd('wincmd j')
 end
 
 -- better merge conflicts
