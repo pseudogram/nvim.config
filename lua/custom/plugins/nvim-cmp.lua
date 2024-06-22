@@ -42,7 +42,7 @@ return {
                 end
             },
             sources = cmp.config.sources({
-                -- { name = 'nvim_lsp' },
+                { name = 'nvim_lsp' }, -- For nvim LSP completions (lspzero)
                 -- { name = 'vsnip' }, -- For vsnip users.
                 { name = 'luasnip' }, -- For luasnip users.
                 -- { name = 'ultisnips' }, -- For ultisnips users.
