@@ -66,18 +66,18 @@ return {
         end)
 
         -- Project Search string under cursor
-        vim.keymap.set('n', '<leader>ys', function()
+        vim.keymap.set('n', '<leader>pw', function()
             builtin.grep_string()
         end)
 
         -- Project Search selection under cursor
-        vim.keymap.set('v', '<leader>ys', function()
+        vim.keymap.set('v', '<leader>ps', function()
             local visual_selection = utils.get_visual_selection()
             builtin.grep_string({ search = visual_selection })
         end)
 
         -- Project File search for selection under cursor
-        vim.keymap.set('v', '<leader>y', function()
+        vim.keymap.set('v', '<leader>pf', function()
             local visual_selection = utils.get_visual_selection()
             builtin.find_files({ search_file = visual_selection })
         end)
