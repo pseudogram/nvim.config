@@ -3,6 +3,9 @@ vim.g.mapleader = " "
 -- remap jj to escape
 vim.keymap.set("i", "jj", "<Esc>")
 
+-- remap , to @@ (repeat last macro)
+vim.keymap.set("n", ",", "@@")
+
 -- project view
 vim.keymap.set("n", "<leader>pv", vim.cmd.Explore) -- used to be Ex, but rails.vim broke it
 
