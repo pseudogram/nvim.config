@@ -13,15 +13,19 @@ end
 --     ls.parser.parse_snippet('expand', "-- this is what was expanded!"),
 -- })
 
-local ruby_and_eruby_snips = {
+local ruby = {
     ls.parser.parse_snippet('debug', "require 'pry'\nbinding.pry\n"),
 }
 
-create_snippets('ruby', ruby_and_eruby_snips )
-create_snippets('eruby', ruby_and_eruby_snips )
+local eruby = {
+    ls.parser.parse_snippet('<%', "<% $1 %>"),
+    ls.parser.parse_snippet('<%=', "<%= $1 %>"),
+}
 
-local typescript_snips = {
+local typescript = {
     ls.parser.parse_snippet('const', "const $1 = $2"),
 }
 
-create_snippets('typescript', typescript_snips)
+create_snippets('ruby', ruby )
+create_snippets('eruby', eruby )
+create_snippets('typescript', typescript)
