@@ -44,11 +44,11 @@ return {
                 --     end
                 -- },
 
-                -- eruby = { require("formatter.filetypes.ruby").rubocop,
-                --     require("formatter.defaults.prettier") },
-
+                eruby = {
+                    require("formatter.defaults.htmlbeautifier"),
+                },
                 ruby = require("formatter.filetypes.ruby").rubocop,
-                eruby = require("formatter.filetypes.ruby").rubocop,
+                -- eruby = require("formatter.filetypes.ruby").rubocop,
                 html = {
                     require("formatter.defaults.prettier"),
                 },
@@ -94,7 +94,7 @@ return {
                         end
 
                         -- check if there are any LSP formatters
-                        local lsp_clients = vim.lsp.buf_get_clients()
+                        local lsp_clients = vim.lsp.get_clients()
                         for _, client in pairs(lsp_clients) do
                             -- format with the lsp
                             if client.server_capabilities.documentFormattingProvider then
