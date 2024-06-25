@@ -43,7 +43,6 @@ return {
                 --         }
                 --     end
                 -- },
-
                 eruby = {
                     require("formatter.defaults.htmlbeautifier"),
                 },
