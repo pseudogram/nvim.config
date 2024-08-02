@@ -1,5 +1,6 @@
 local ls = require 'luasnip'
 
+require("luasnip.loaders.from_snipmate").lazy_load()
 
 local function create_snippets(key, table)
     ls.add_snippets(
