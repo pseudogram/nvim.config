@@ -8,12 +8,36 @@ return {
     },
     config = function()
         local dap = require('dap')
+        local dapui = require("dapui")
+        -- local ui_config = {
+        --     icons = { expanded = "🞃", collapsed = "🞂", current_frame = "→" },
+        --     controls = {
+        --         icons = {
+        --             pause = "⏸",
+        --             play = "⯈",
+        --             step_into = "↴",
+        --             step_over = "↷",
+        --             step_out = "↑",
+        --             step_back = "↶",
+        --             run_last = "🗘",
+        --             terminate = "🕱",
+        --             disconnect = "⏻"
+        --         }
+        --     }
+        -- }
+        -- dapui.setup(ui_config)
+
+        -- to use icons install font-hack-nerd-font (brew)
+        dapui.setup()
+
+        require("nvim-dap-virtual-text").setup()
+
         vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
         vim.keymap.set("n", "<leader>gb", dap.run_to_cursor)
 
         -- Eval under cursor
         vim.keymap.set("n", "<leader>?", function()
-            require("dapui").eval(nil, { enter = true })
+            dapui.eval(nil, { enter = true })
         end)
 
         vim.keymap.set("n", "<F1>", dap.continue)
@@ -71,14 +95,26 @@ return {
         -- }
 
         -- C++ - lldb
-        dap.adapters.lldb = {
-            type = 'executable',
-            command = '$HOME/.local/share/nvim/mason/bin/codelldb', -- adjust as needed, must be absolute path
-            name = 'lldb'
+        -- dap.adapters.lldb = {
+        --     type = 'executable',
+        --     command = '$HOME/.local/share/nvim/mason/bin/codelldb', -- adjust as needed, must be absolute path
+        --     name = 'lldb'
+        -- }
+        dap.adapters.codelldb = {
+            type = 'server',
+            port = "${port}",
+            executable = {
+                -- CHANGE THIS to your path!
+                command = os.getenv('HOME') .. '/.local/share/nvim/mason/bin/codelldb',
+                args = { "--port", "${port}" },
+
+                -- On windows you may have to uncomment this:
+                -- detached = false,
+            }
         }
         local lldb = {
-            name = 'Launch lldb',
-            type = 'lldb',
+            name = 'Launch file',
+            type = 'codelldb',
             request = 'launch',
             program = function()
                 return vim.fn.input(
@@ -89,7 +125,7 @@ return {
             end,
             cwd = '${workspaceFolder}',
             stopOnEntry = false,
-            args = {},
+            -- args = {},
             runInTerminal = true,
             -- 💀
             -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
@@ -104,8 +140,16 @@ return {
             -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
             -- runInTerminal = false,
         }
-        dap.configurations.cpp = {
-            lldb
-        }
+        if vim.loop.os_uname().sysname == 'Darwin' then
+            -- gdb doesn't work on mac arm chips... yet
+            dap.configurations.cpp = {
+                lldb
+            }
+        else
+            print(string.format(
+                "We're %s os, and you've not configrued a cpp debugger",
+                vim.loop.os_uname().sysname
+            ))
+        end
     end
 }
