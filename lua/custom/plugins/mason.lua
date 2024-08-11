@@ -12,12 +12,9 @@ return {
             require('mason').setup({})
             require('mason-lspconfig').setup({
                 ensure_installed = {
-                    'tsserver',
                     'rust_analyzer',
                     'pylsp',
-                    'clangd',
                     'lua_ls',
-                    'solargraph'
                 },
                 handlers = {
                     lsp_zero.default_setup,
