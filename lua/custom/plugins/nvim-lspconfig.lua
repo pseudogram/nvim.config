@@ -54,10 +54,8 @@ return {
             end, opts)
             vim.keymap.set({"i","n"}, "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
             vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-            -- vim.keymap.set('n', "<leader>ca", "<cmd>Lspsaga code_action<cr>")
             vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-            -- vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-            vim.keymap.set("n", "<leader>vrn", "<cmd>Lspsaga rename<cr>")
+            vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 
             -- not sure what the following do
             vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
