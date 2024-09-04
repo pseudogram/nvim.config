@@ -76,23 +76,21 @@ return {
         }
 
         -- C++
-        -- dap.adapters.gdb = {
-        --     type = "executable",
-        --     command = "gdb",
-        --     args = { "-i", "dap" }
-        -- }
-        -- dap.configurations.cpp = {
-        --     {
-        --         name = "Launch",
-        --         type = "gdb",
-        --         request = "launch",
-        --         program = function()
-        --             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        --         end,
-        --         cwd = "${workspaceFolder}",
-        --         stopAtBeginningOfMainSubprogram = false,
-        --     },
-        -- }
+        dap.adapters.gdb = {
+            type = "executable",
+            command = "gdb",
+            args = { "-i", "dap" }
+        }
+        local gdb = {
+            name = "Launch",
+            type = "gdb",
+            request = "launch",
+            program = function()
+                return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            end,
+            cwd = "${workspaceFolder}",
+            stopAtBeginningOfMainSubprogram = false,
+        }
 
         -- C++ - lldb
         -- dap.adapters.lldb = {
@@ -146,10 +144,9 @@ return {
                 lldb
             }
         else
-            print(string.format(
-                "We're %s os, and you've not configrued a cpp debugger",
-                vim.loop.os_uname().sysname
-            ))
+            dap.configurations.cpp = {
+                gdb
+            }
         end
     end
 }
