@@ -84,8 +84,22 @@ return {
         --         on_attach = on_attach,
         --     },
         -- })
+        -- vim.diagnostic.config({
+        --     virtual_text = false --true
+        -- })
         vim.diagnostic.config({
-            virtual_text = true
+            virtual_text = false
+            -- {
+                -- severity = {
+                --     min = vim.diagnostic.severity.INFO
+                -- }
+                -- severity = {
+                --     vim.diagnostic.severity.HINT,
+                --     vim.diagnostic.severity.INFO,
+                --     vim.diagnostic.severity.WARN,
+                --     vim.diagnostic.severity.ERROR,
+                -- }
+            -- }
         })
     end
 }
