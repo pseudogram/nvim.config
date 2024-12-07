@@ -19,4 +19,3 @@ local opts = {
 }
 
 lazy.setup('custom.plugins', opts)
-
