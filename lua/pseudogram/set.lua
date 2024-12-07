@@ -42,3 +42,9 @@ vim.g.netrw_banner = 0
 vim.opt.ignorecase = true
 -- if searching with a cased letter, then care
 vim.opt.smartcase = true
+
+-- By default set the foldmethod for all filetypes, can be overwritten per
+-- file using an ftplugin
+vim.opt_local.foldmethod = 'indent'
+-- recommendations say to use foldlevelstart but I found that didn't work
+vim.opt_local.foldlevel=99
