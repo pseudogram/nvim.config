@@ -45,6 +45,6 @@ vim.opt.smartcase = true
 
 -- By default set the foldmethod for all filetypes, can be overwritten per
 -- file using an ftplugin
-vim.opt_local.foldmethod = 'indent'
+vim.opt.foldmethod = 'indent'
 -- recommendations say to use foldlevelstart but I found that didn't work
-vim.opt_local.foldlevel=99
+vim.opt.foldlevel=99
