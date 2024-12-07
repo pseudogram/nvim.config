@@ -16,6 +16,9 @@ end
 
 local ruby = {
     ls.parser.parse_snippet('debug', "require 'pry'\nbinding.pry\n"),
+    ls.parser.parse_snippet('todo', "# TODO: $1"),
+    ls.parser.parse_snippet('optimize', "# OPTIMIZE: $1"),
+    ls.parser.parse_snippet('fixme', "# FIXME: $1"),
 }
 
 local eruby = {
