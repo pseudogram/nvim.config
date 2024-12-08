@@ -22,6 +22,11 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
+
+-- Reserve a space in the gutter
+-- This will avoid an annoying layout shift in the screen
+vim.opt.signcolumn = 'yes'
+
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
