@@ -7,9 +7,13 @@ return {
 
             return diagnostic
         end)
+        lint.linters.codespell = require("lint.util").wrap(lint.linters.codespell, function(diagnostic)
+            diagnostic.severity = vim.diagnostic.severity.HINT
 
+            return diagnostic
+        end)
 
-        vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
+        vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, { -- InsertLeave would be good
             callback = function()
                 -- -- try_lint without arguments runs the linters defined in `linters_by_ft`
                 -- -- for the current filetype
@@ -18,7 +22,7 @@ return {
                 -- You can call `try_lint` with a linter name or a list of names to always
                 -- run specific linters, independent of the `linters_by_ft` configuration
                 lint.try_lint("cspell")
-                -- require("lint").try_lint("codespell")
+                lint.try_lint("codespell")
             end,
         })
     end
