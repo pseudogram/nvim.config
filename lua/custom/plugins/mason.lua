@@ -7,8 +7,6 @@ return {
     {
         'williamboman/mason-lspconfig.nvim',
         config = function()
-            local lsp_zero = require('lsp-zero')
-
             require('mason').setup({})
             require('mason-lspconfig').setup({
                 ensure_installed = {
@@ -16,7 +14,9 @@ return {
                     'lua_ls',
                 },
                 handlers = {
-                    lsp_zero.default_setup,
+                    function(server_name)
+                      require('lspconfig')[server_name].setup({})
+                    end,
                 }
             })
         end
