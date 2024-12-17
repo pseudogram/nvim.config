@@ -19,6 +19,12 @@ return {
                 -- -- for the current filetype
                 -- require("lint").try_lint()
 
+                local dont_lint = {'netrw'}
+                for i=1, #dont_lint do
+                    if vim.bo.ft == dont_lint[i] then
+                        return
+                    end
+                end
                 -- You can call `try_lint` with a linter name or a list of names to always
                 -- run specific linters, independent of the `linters_by_ft` configuration
                 lint.try_lint("cspell")
