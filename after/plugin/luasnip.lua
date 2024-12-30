@@ -30,6 +30,6 @@ local typescript = {
     ls.parser.parse_snippet('const', "const $1 = $2"),
 }
 
-create_snippets('ruby', ruby )
-create_snippets('eruby', eruby )
+create_snippets('ruby', ruby)
+create_snippets('eruby', eruby)
 create_snippets('typescript', typescript)
