@@ -2,7 +2,7 @@ return {
     {
         'williamboman/mason.nvim',
         lazy = false,
-        config = true,
+        config = true
     },
     {
         'williamboman/mason-lspconfig.nvim',
